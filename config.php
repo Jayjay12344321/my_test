@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------------------------------
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
+// test pat
 
 return
 		array(
