@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- PLUGINS -->
+	<link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/datatables.net-dt/css/jquery.dataTables.min.css">
+
+	<link rel="stylesheet" type="text/css" href="view/assets/css/style.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <title>SRMS</title>
+</head>
+<body>
+
+	<div class="pre-loader hide">
+		<div id="cssload-pgloading">
+			<div class="cssload-loadingwrap">
+				<ul class="cssload-bokeh">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid main-background">
+		<div class="topnav" id="myTopnav">
+		  	<a href="#/home" class="main-link-home">Student</a>
+		  	<a href="#/news" class="main-link-news">News</a>
+		  	<a href="#/contact" class="main-link-contact">Contact</a>
+		  	<a href="#/about" class="main-link-about">About</a>
+		  	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		   		<i class="fa fa-bars"></i>
+		  	</a>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="main-content main-home" container-id="search-home">
+					<div class="row">
+						<div class="col-sm-12">
+							<label class="col-sm-12"><b>List of Students</b></label>
+						</div>
+					</div>
+					<hr>
+					<div class="row box-sizing">
+						<div class="col-sm-6">                                   
+							<div class="col-sm-12 background-black">
+								<label class="col-sm-2 float-left"><b>Name</b></label>
+						      	<input type="text" style="border:1px solid green;" name="search-name" class="search-name background-white form-control col-sm-3 float-left" placeholder="Search Name">&#160;&#160;&#160;&#160;
+						      	<button type="submit" class="btn-add-student col-sm-1 btn btn-primary btn-md no-border float-left">
+						      		<i class="fas fa-plus"></i>
+						      	</button>
+								<label class="col-sm-5 float-left"></label>
+							</div><br>
+							<div class="col-sm-12">
+								<select class="form-control" name="lstStud" id="lstStudents" value="" size="20">
+							 			
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6 search-product">
+							<div class="add-student-content">
+								<div class="col-sm-12 background-black">
+									<label class="col-sm-5 float-left"><b>First Name</b></label>
+							      	<input type="text" style="border:1px solid green;" class="background-white form-control col-sm-7 btn btn-sm float-left save-student-firstname">
+								</div><br><br>
+								<div class="col-sm-12 background-black">
+									<label class="col-sm-5 float-left"><b>Last Name</b></label>
+							      	<input type="text" style="border:1px solid green;" class="background-white form-control col-sm-7 btn btn-sm float-left save-student-lastname">
+								</div><br><br>
+								<div class="col-sm-12 background-black">
+									<label class="col-sm-5 float-left"><b>Birth Date</b></label>
+							      	<input type="date" style="border:1px solid green;" class="background-white form-control col-sm-7 btn btn-sm float-left save-student-bod">
+								</div><br><br>
+								<div class="col-sm-12 background-black">
+									<label class="col-sm-5 float-left"><b>Address</b></label>
+							      	<input type="text" style="border:1px solid green;" class="background-white form-control col-sm-7 btn btn-sm float-left save-student-address">
+								</div><br><br>
+								<div class="col-sm-12 background-black">
+									<label class="col-sm-10 float-left"></label>
+							      	<button type="submit" class="pull-right btn-save-student col-sm-2 btn btn-primary btn-sm no-border float-left">
+							      		<i class="fas fa-plus"> Save</i>
+							      	</button>
+								</div>
+							</div>
+						</div>
+						<div class="view-student-by-id col-sm-6">
+							
+						</div>
+					</div>
+				</div>
+				<div class="main-content main-news" container-id="search-news">
+				  	<h2>NEWS</h2>
+				  	<p>Resize the browser window to see how it works.</p>
+				  	
+				  	<table id="example" class="display table" width="80%">
+				  		<thead>
+				            <tr>
+				                <th>Student Id</th>
+				                <th>First Name</th>
+				                <th>Last Name</th>
+				                <th>Birth Date</th>
+				                <th>Address</th>
+				            </tr>
+				        </thead>
+				  	</table>
+
+				</div>
+				<div class="main-content main-contact" container-id="search-contact">
+				  	<h2>CONTACT</h2>
+				  	<p>Resize the browser window to see how it works.</p>
+				</div>
+				<div class="main-content main-about" container-id="search-about">
+				  	<h2>ABOUT</h2>
+				  	<p>Resize the browser window to see how it works.</p>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+	<script>
+	function myFunction() {
+	  var x = document.getElementById("myTopnav");
+	  if (x.className === "topnav") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "topnav";
+	  }
+	}
+	</script>
+
+    <script type="text/javascript" src="config.js"></script>
+
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+
+	<script defer type="text/javascript" src="node_modules/sammy/lib/min/sammy-latest.min.js"></script>
+	<script defer type="text/javascript" src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+	<script defer type="text/javascript" src="node_modules/select/dist/select.js"></script>
+	<script defer type="text/javascript" src="node_modules/mustache/mustache.js"></script>
+	<!-- <script defer type="text/javascript" src="node_modules/socket.io/lib/socket.io.js"></script> -->
+
+	<script defer type="text/javascript" src="view/assets/js/app.login.template.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/app.template.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/app.login.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/app.event.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/app.route.js"></script>	
+	<script defer type="text/javascript" src="view/assets/js/app.core.js"></script>
+
+	<script defer type="text/javascript" src="view/assets/js/module.home.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/module.news.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/module.contact.js"></script>
+	<script defer type="text/javascript" src="view/assets/js/module.about.js"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+		    $('#example').DataTable( {
+		        //"processing": false,
+		        //"serverSide": true,
+		        "targets": 'no-sort',
+				"bSort": false,
+				"order": [],
+		        'destroy'      : true,
+				'bUseRendered' : false,
+				'bDeferRender' : true,
+				'bAutoWidth'   : false,
+				'bFilter'      : false,
+				'bServerSide'  : true,
+				'order' 	   : [[ 0, 'desc' ]],
+				'bLengthChange': false,
+		        "ajax": {
+		            url : main.base_url2 + 'student/view_using_data_table',
+		            type: "POST",
+		            dataSrc: 'data',
+		            data : function(d){
+			            d.b_filter = {
+	                        'firstname' : '',
+	                        'lastname'  : ''
+	                    };
+
+	                    d.order[0] = {
+	                    	'column' :  '0',
+	                    	'dir'    : 'desc'
+	                    }
+		            }
+		        },
+		        "columns": [
+		            { data: "student_id" },
+		            { data: "firstname" },
+		            { data: "lastname" },
+		            { data: "bod" },
+		            { data: "address" }
+		        ]
+		    } );
+		});
+	</script>
+</body>
+</html>
